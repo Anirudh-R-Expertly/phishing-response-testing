@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Security Alert | Phishing Awareness</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #128C7E;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            position: relative;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .alert-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: -20px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        h2 {
+            color: #128C7E;
+            border-bottom: 2px solid #f5f5f5;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .info-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .phishing-example {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .phishing-example h4 {
+            margin-top: 0;
+            color: #128C7E;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f5f5f5;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        
+        .resources-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+        
+        .resources-section h3 {
+            margin-top: 0;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 24px;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: #128C7E;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #128C7E;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .share-section {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .message-preview {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #dcf8c6;
+            position: relative;
+            max-width: 80%;
+            margin-left: auto;
+        }
+        
+        .message-preview:before {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 15px;
+            border-width: 10px 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent #dcf8c6;
+        }
+        
+        .scenario-container {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            color: #128C7E;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: -20px 15px 0;
+            }
+            
+            .stat-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="alert-icon">⚠️</div>
+        <h1>You've Been Phished!</h1>
+        <p>This was a friendly security awareness test</p>
+    </div>
+    
+    <div class="container">
+        <div class="info-box">
+            <strong>Don't worry!</strong> This was a harmless security awareness exercise. No personal data was collected, and your WhatsApp account is completely safe. This test was designed to help you and your circle of contacts stay safe from real phishing attempts.
+        </div>
+        
+        <h2>Why I Shared This With You</h2>
+        <p>WhatsApp scams are targeting our friends, family members, and colleagues every day. I shared this test because I care about your online safety. Cybercriminals are increasingly targeting WhatsApp users with sophisticated phishing attempts that can:</p>
+        <ul>
+            <li>Steal your personal information</li>
+            <li>Gain access to your WhatsApp account</li>
+            <li>Impersonate you to scam your contacts</li>
+            <li>Install malware on your device</li>
+        </ul>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">2B+</div>
+                <div class="stat-label">WhatsApp users worldwide make it a prime target</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">59%</div>
+                <div class="stat-label">of phishing attacks now target mobile users</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">76%</div>
+                <div class="stat-label">of organizations reported being targeted by phishing in 2023</div>
+            </div>
+        </div>
+        
+        <h2>What Just Happened?</h2>
+        <p>You received what appeared to be a WhatsApp verification request. When you clicked the link, you were directed to a page that looked like an official WhatsApp service. In a real attack, this could have led to account theft or malware installation.</p>
+        
+        <div class="warning-box">
+            <strong>Red Flags You May Have Missed:</strong>
+            <ul>
+                <li>The message created a false sense of urgency about your account</li>
+                <li>The URL didn't match official WhatsApp domains (whatsapp.com)</li>
+                <li>The request was unexpected and unsolicited</li>
+                <li>The page asked for verification without proper context</li>
+            </ul>
+        </div>
+        
+        <h2>Real WhatsApp Scams Targeting Your Contacts</h2>
+        
+        <div class="scenario-container">
+            <div class="scenario-title">Scenario 1: The "Hey Mom/Dad, I've Lost My Phone" Scam</div>
+            <p>A scammer impersonates your child or family member, claiming they've lost their phone and are using a temporary number. They then ask for money for an "emergency."</p>
+            
+            <div class="message-preview">
+                Hey Mom, this is my temporary number. I lost my phone and need to buy a new one. Can you send me $300? I'll pay you back tomorrow.
+            </div>
+        </div>
+        
+        <div class="scenario-container">
+            <div class="scenario-title">Scenario 2: The Verification Code Scam</div>
+            <p>A scammer pretends to be your friend who accidentally sent their WhatsApp verification code to you, asking you to forward it. In reality, they're trying to access your account.</p>
+            
+            <div class="message-preview">
+                Hi! Sorry, I accidentally sent my 6-digit code to your number. Can you forward it to me? It's urgent!
+            </div>
+        </div>
+        
+        <div class="scenario-container">
+            <div class="scenario-title">Scenario 3: The WhatsApp Gold/Plus Upgrade Scam</div>
+            <p>You receive a message about an exclusive "premium" version of WhatsApp with special features. The link installs malware.</p>
+            
+            <div class="message-preview">
+                WhatsApp Gold is finally available! 🎉 This exclusive version has video calling, 100+ emojis, enhanced security and more. Upgrade now: [malicious link]
+            </div>
+        </div>
+        
+        <h2>How to Protect Yourself and Your Contacts</h2>
+        
+        <h3>When Using WhatsApp:</h3>
+        <ul>
+            <li><strong>Never share verification codes</strong> - WhatsApp will never ask for your 6-digit code, and neither will your contacts</li>
+            <li><strong>Verify unusual requests</strong> - If a friend or family member makes an unusual request, call them on their known number to verify</li>
+            <li><strong>Enable Two-Step Verification</strong> - Go to WhatsApp Settings > Account > Two-step verification</li>
+            <li><strong>Check for the official verification</strong> - Official WhatsApp business accounts have a green checkmark</li>
+            <li><strong>Be wary of "forwarded" labels</strong> - Messages forwarded many times may contain scams</li>
+        </ul>
+        
+        <div class="phishing-example">
+            <h4>How to Set Up WhatsApp Two-Step Verification</h4>
+            <ol>
+                <li>Open WhatsApp and tap Settings (gear icon)</li>
+                <li>Tap Account > Two-step verification > Enable</li>
+                <li>Create a 6-digit PIN you'll remember</li>
+                <li>Add your email address as a backup (optional but recommended)</li>
+                <li>Tap Done</li>
+            </ol>
+        </div>
+        
+        <h3>General Digital Safety Tips:</h3>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Common Scam Tactic</th>
+                <th>How to Stay Safe</th>
+            </tr>
+            <tr>
+                <td>Urgent requests for money</td>
+                <td>Always verify by calling the person's known number</td>
+            </tr>
+            <tr>
+                <td>Strange links or attachments</td>
+                <td>Never click links from unknown sources or unexpected messages</td>
+            </tr>
+            <tr>
+                <td>Requests for personal information</td>
+                <td>WhatsApp will never ask for personal details via messages</td>
+            </tr>
+            <tr>
+                <td>Too-good-to-be-true offers</td>
+                <td>WhatsApp doesn't offer premium versions or rewards</td>
+            </tr>
+            <tr>
+                <td>Messages creating panic or urgency</td>
+                <td>Take time to verify through official channels</td>
+            </tr>
+        </table>
+        
+        <div class="success-box">
+            <strong>Remember:</strong> The real WhatsApp will never:
+            <ul>
+                <li>Ask for your password or verification code</li>
+                <li>Request payment information via message</li>
+                <li>Send unexpected verification links</li>
+                <li>Claim you need to "verify" or "authenticate" your account through a link</li>
+                <li>Offer special "premium" versions of the app</li>
+            </ul>
+        </div>
+        
+        <div class="share-section">
+            <h3>Help Protect Your Friends and Family</h3>
+            <p>Now that you know how to spot WhatsApp phishing attempts, share this knowledge with your contacts. The more people who can recognize these scams, the safer we all are.</p>
+            <a href="#" class="button">Share This Safety Information</a>
+        </div>
+        
+        <div class="resources-section">
+            <h3>Learn More About Staying Safe</h3>
+            <p>To learn more about protecting yourself from WhatsApp scams and other digital threats, check out these resources:</p>
+            <ul>
+                <li>WhatsApp Security FAQ: <a href="https://faq.whatsapp.com/general/security-and-privacy">https://faq.whatsapp.com/general/security-and-privacy</a></li>
+                <li>How to Enable Two-Step Verification: <a href="https://faq.whatsapp.com/general/verification/how-to-manage-two-step-verification-settings">https://faq.whatsapp.com/general/verification/how-to-manage-two-step-verification-settings</a></li>
+                <li>Report Scams to WhatsApp: <a href="https://faq.whatsapp.com/general/security-and-privacy/staying-safe-on-whatsapp">https://faq.whatsapp.com/general/security-and-privacy/staying-safe-on-whatsapp</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>This security awareness test was shared because I care about your online safety.</p>
+            <p>Stay safe, and remember to verify before you trust!</p>
+        </div>
+    </div>
+</body>
+</html>
